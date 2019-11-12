@@ -1,0 +1,305 @@
+EESchema Schematic File Version 4
+LIBS:8-bit-computer-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 13
+Title "8 Bit CPU Overview"
+Date "2019-11-11"
+Rev "1"
+Comp ""
+Comment1 ""
+Comment2 "CPU."
+Comment3 "This page shows an overview of the connections between all the functional blocks of the"
+Comment4 "Author: Sebastian Gaume"
+$EndDescr
+$Sheet
+S 3950 3150 1350 1050
+U 5DC869A8
+F0 "General Purpose Registers" 50
+F1 "general-purpose-registers.sch" 50
+F2 "AI" I L 3950 3350 50 
+F3 "~AO~" I L 3950 3450 50 
+F4 "DATA-BUS" B L 3950 4000 50 
+F5 "ADDER-A" O R 5300 3800 50 
+F6 "ADDER-B" O R 5300 3900 50 
+F7 "VAR-ADDRESS" O R 5300 3500 50 
+F8 "BI" I L 3950 3650 50 
+F9 "~BO~" I L 3950 3750 50 
+$EndSheet
+$Sheet
+S 3950 4400 1350 1050
+U 5DD0BF6F
+F0 "Adder" 50
+F1 "adder.sch" 50
+F2 "ADDER-A" I R 5300 4950 50 
+F3 "ADDER-B" I R 5300 4850 50 
+F4 "~EO~" I L 3950 4700 50 
+F5 "DATA-BUS" O L 3950 5200 50 
+$EndSheet
+$Sheet
+S 1300 5650 1400 900 
+U 5DCA07D6
+F0 "Comparison Unit" 50
+F1 "comparison-unit.sch" 50
+F2 "L2" I R 2700 6000 50 
+F3 "L1" I R 2700 5900 50 
+F4 "<OUT" O L 1300 6000 50 
+F5 "=OUT" O L 1300 6100 50 
+F6 ">OUT" O L 1300 6200 50 
+F7 "DATA-BUS" I R 2700 6250 50 
+$EndSheet
+$Sheet
+S 1300 700  1400 1050
+U 5DD6A72D
+F0 "Instruction Register" 50
+F1 "instruction-register.sch" 50
+F2 "II" I R 2700 1150 50 
+F3 "~IO~" I R 2700 1250 50 
+F4 "INS-DCDR" O L 1300 1600 50 
+F5 "RAM-ADDRESS" O L 1300 1200 50 
+F6 "INS-BUS" I R 2700 950 50 
+F7 "DATA-BUS" O R 2700 1450 50 
+$EndSheet
+$Sheet
+S 1300 1950 1400 2250
+U 5DDC15B8
+F0 "Instruction Decoder" 50
+F1 "instruction-decoder.sch" 50
+F2 "<IN" I L 1300 4000 50 
+F3 "=IN" I L 1300 3900 50 
+F4 ">IN" I L 1300 3800 50 
+F5 "INS-DCDR" I L 1300 2150 50 
+F6 "CLK" I L 1300 3050 50 
+F7 "AI" O R 2700 2850 50 
+F8 "~AO~" O R 2700 2950 50 
+F9 "BI" O R 2700 3100 50 
+F10 "~BO~" O R 2700 3200 50 
+F11 "~EO~" O R 2700 4100 50 
+F12 "II" O R 2700 2400 50 
+F13 "~IO~" O R 2700 2500 50 
+F14 "CE" O L 1300 2950 50 
+F15 "~RI~" O R 2700 3350 50 
+F16 "~RO~" O R 2700 3450 50 
+F17 "~SI~" O R 2700 3850 50 
+F18 "~SO~" O R 2700 3950 50 
+F19 "L1" O R 2700 3600 50 
+F20 "L2" O R 2700 3700 50 
+F21 "PI" O R 2700 2150 50 
+F22 "~PJ~" O R 2700 2250 50 
+$EndSheet
+$Sheet
+S 1300 4400 1400 1050
+U 5DDC3596
+F0 "RAM" 50
+F1 "ram.sch" 50
+F2 "RAM-ADDRESS" I L 1300 4900 50 
+F3 "~RI~" I R 2700 4650 50 
+F4 "~RO~" I R 2700 4750 50 
+F5 "DATA-BUS" B R 2700 5200 50 
+$EndSheet
+Wire Bus Line
+	1300 1200 1100 1200
+Wire Bus Line
+	1100 1200 1100 4900
+Wire Bus Line
+	1100 4900 1300 4900
+Wire Bus Line
+	5300 3900 5400 3900
+Wire Bus Line
+	5400 4850 5300 4850
+Wire Bus Line
+	5300 3800 5500 3800
+Wire Bus Line
+	5500 3800 5500 4950
+Wire Bus Line
+	5500 4950 5300 4950
+Wire Bus Line
+	5400 3900 5400 4850
+$Sheet
+S 3950 5650 1350 900 
+U 5DDEF819
+F0 "Variable Memory" 50
+F1 "variable-memory.sch" 50
+F2 "VAR-ADDRESS" I R 5300 6100 50 
+F3 "~SI~" I L 3950 5900 50 
+F4 "~SO~" I L 3950 6000 50 
+F5 "DATA-BUS" B L 3950 6250 50 
+$EndSheet
+$Sheet
+S 3950 1950 1350 1000
+U 5DDEF892
+F0 "Program Counter" 50
+F1 "program-counter.sch" 50
+F2 "DATA-BUS" I L 3950 2750 50 
+F3 "COUNT" O R 5300 2450 50 
+F4 "PI" I L 3950 2150 50 
+F5 "~PJ~" I L 3950 2250 50 
+$EndSheet
+$Sheet
+S 3950 700  1350 1050
+U 5DDEF900
+F0 "Program Storage" 50
+F1 "program-storage.sch" 50
+F2 "COUNT" I R 5300 1250 50 
+F3 "INS-BUS" O L 3950 950 50 
+$EndSheet
+Wire Bus Line
+	5300 3500 5600 3500
+Wire Bus Line
+	5600 3500 5600 6100
+Wire Bus Line
+	5600 6100 5300 6100
+Wire Bus Line
+	2700 950  3950 950 
+Wire Bus Line
+	5300 2450 5400 2450
+Wire Bus Line
+	5400 2450 5400 1250
+Wire Bus Line
+	5400 1250 5300 1250
+Wire Wire Line
+	2700 2150 3950 2150
+Wire Wire Line
+	3950 2250 2700 2250
+Wire Wire Line
+	2700 2400 2800 2400
+Wire Wire Line
+	2800 2400 2800 1150
+Wire Wire Line
+	2800 1150 2700 1150
+Wire Wire Line
+	2700 2500 2900 2500
+Wire Wire Line
+	2900 2500 2900 1250
+Wire Wire Line
+	2900 1250 2700 1250
+Wire Wire Line
+	2700 2850 3850 2850
+Wire Wire Line
+	3850 2850 3850 3350
+Wire Wire Line
+	3850 3350 3950 3350
+Wire Wire Line
+	2700 2950 3750 2950
+Wire Wire Line
+	3750 2950 3750 3450
+Wire Wire Line
+	3750 3450 3950 3450
+Wire Wire Line
+	2700 3100 3650 3100
+Wire Wire Line
+	3650 3100 3650 3650
+Wire Wire Line
+	3650 3650 3950 3650
+Wire Wire Line
+	2700 3200 3550 3200
+Wire Wire Line
+	3550 3200 3550 3750
+Wire Wire Line
+	3550 3750 3950 3750
+Wire Wire Line
+	2700 3700 2800 3700
+Wire Wire Line
+	2800 3700 2800 6000
+Wire Wire Line
+	2800 6000 2700 6000
+Wire Wire Line
+	2700 5900 2900 5900
+Wire Wire Line
+	2900 5900 2900 3600
+Wire Wire Line
+	2900 3600 2700 3600
+Wire Wire Line
+	2700 3450 3000 3450
+Wire Wire Line
+	3000 3450 3000 4750
+Wire Wire Line
+	3000 4750 2700 4750
+Wire Wire Line
+	2700 3350 3100 3350
+Wire Wire Line
+	3100 3350 3100 4650
+Wire Wire Line
+	3100 4650 2700 4650
+Wire Wire Line
+	2700 4100 3850 4100
+Wire Wire Line
+	3850 4100 3850 4700
+Wire Wire Line
+	3850 4700 3950 4700
+Wire Wire Line
+	2700 3950 3750 3950
+Wire Wire Line
+	3750 3950 3750 6000
+Wire Wire Line
+	3750 6000 3950 6000
+Wire Wire Line
+	2700 3850 3650 3850
+Wire Wire Line
+	3650 3850 3650 5900
+Wire Wire Line
+	3650 5900 3950 5900
+Wire Wire Line
+	1300 6000 1200 6000
+Wire Wire Line
+	1200 6000 1200 4000
+Wire Wire Line
+	1200 4000 1300 4000
+Wire Wire Line
+	1300 6100 1000 6100
+Wire Wire Line
+	1000 6100 1000 3900
+Wire Wire Line
+	1000 3900 1300 3900
+Wire Wire Line
+	1300 3800 900  3800
+Wire Wire Line
+	900  3800 900  6200
+Wire Wire Line
+	900  6200 1300 6200
+Wire Bus Line
+	1300 1600 1200 1600
+Wire Bus Line
+	1200 1600 1200 2150
+Wire Bus Line
+	1200 2150 1300 2150
+Wire Bus Line
+	2700 6250 3350 6250
+Wire Bus Line
+	2700 5200 3350 5200
+Wire Bus Line
+	3350 4000 3950 4000
+Wire Bus Line
+	3350 2750 3950 2750
+Wire Bus Line
+	3350 1450 2700 1450
+Wire Bus Line
+	3350 1450 3350 2750
+Connection ~ 3350 6250
+Wire Bus Line
+	3350 6250 3950 6250
+Connection ~ 3350 2750
+Wire Bus Line
+	3350 2750 3350 4000
+Connection ~ 3350 4000
+Wire Bus Line
+	3350 4000 3350 5200
+Connection ~ 3350 5200
+Wire Bus Line
+	3350 5200 3950 5200
+Wire Bus Line
+	3350 5200 3350 6250
+$Sheet
+S 3950 6750 1350 800 
+U 5DEB9EC7
+F0 "Data Bus Termination" 50
+F1 "data-bus-termination.sch" 50
+F2 "DATA-BUS" I L 3950 7150 50 
+$EndSheet
+Wire Bus Line
+	3350 6250 3350 7150
+Wire Bus Line
+	3350 7150 3950 7150
+$EndSCHEMATC

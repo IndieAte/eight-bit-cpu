@@ -1,0 +1,11 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AS7C256B
+D 32k x 8 CMOS SRAM
+$ENDCMP
+#
+$CMP AT28C64B
+D 8K x 8 parallel EEPROM
+$ENDCMP
+#
+#End Doc Library

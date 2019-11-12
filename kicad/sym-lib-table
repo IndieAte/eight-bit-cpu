@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name 74HCxx)(type Legacy)(uri "$(KIPRJMOD)/74HCxx.lib")(options "")(descr ""))
+  (lib (name 8-bit-computer-other)(type Legacy)(uri ${KIPRJMOD}/8-bit-computer-other.lib)(options "")(descr ""))
+  (lib (name 8-bit-computer-rescue)(type Legacy)(uri ${KIPRJMOD}/8-bit-computer-rescue.lib)(options "")(descr ""))
+)

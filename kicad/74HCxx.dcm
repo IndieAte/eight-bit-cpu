@@ -1,0 +1,27 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 74HC163
+D 4-bit synchronous binary counter
+$ENDCMP
+#
+$CMP 74HC283
+D 4-bit binary full adder with fast carry
+$ENDCMP
+#
+$CMP 74HC541
+D Tri-state octal buffer and line driver
+$ENDCMP
+#
+$CMP 74HC573A
+D Tri-state octal transparent D-type latches
+$ENDCMP
+#
+$CMP 74HC574
+D Tri-state octal D-flip-flop
+$ENDCMP
+#
+$CMP 74HC85
+D 4-Bit magnitude comparator
+$ENDCMP
+#
+#End Doc Library
