@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 13
+Sheet 1 14
 Title "8 Bit CPU Overview"
 Date "2019-11-11"
 Rev "1"
@@ -302,4 +302,130 @@ Wire Bus Line
 	3350 6250 3350 7150
 Wire Bus Line
 	3350 7150 3950 7150
+$Sheet
+S 1300 6750 1400 800 
+U 5DCC8DE1
+F0 "Clock" 50
+F1 "clock.sch" 50
+F2 "CE" I L 1300 7200 50 
+F3 "CLK" O L 1300 7100 50 
+$EndSheet
+Wire Wire Line
+	1300 3050 800  3050
+Wire Wire Line
+	800  3050 800  7100
+Wire Wire Line
+	800  7100 1300 7100
+Wire Wire Line
+	1300 7200 700  7200
+Wire Wire Line
+	700  7200 700  2950
+Wire Wire Line
+	700  2950 1300 2950
+Text Notes 6150 950  0    50   ~ 10
+How To Build An 8-Bit CPU
+Text Notes 6150 1100 0    50   ~ 0
+This document is the full schematic (excluding a power supply) for a fully functional, Turing complete, 
+Text Notes 6150 1900 0    50   ~ 0
+so hopefully they should be fairly simple to understand, however don't hesitate to ask any questions.
+Text Notes 6150 1200 0    50   ~ 0
+8-bit CPU (at least I really hope it is). 
+Text Notes 6150 1300 0    50   ~ 0
+By that, I mean that it is capable of executing any algorithm, or computing anything
+Text Notes 6150 1400 0    50   ~ 0
+'computable' - an incredibly vague definition that you'd be much better served by Turing's original paper
+Text Notes 6150 1500 0    50   ~ 0
+on than by anything I could say here. 
+Text Notes 6150 1600 0    50   ~ 0
+This is meant to be understandable to anyone with a basic understanding of digital logic
+Text Notes 6150 1700 0    50   ~ 0
+and nothing more, because that's really all it is. Most of the 'circuit diagrams' are just the
+Text Notes 6150 1800 0    50   ~ 0
+connections between integrated circuits, all of which are as well labeled as clearly as I could,
+Text Notes 6150 2850 0    50   ~ 0
+them do what we want) and then 'executing' it (actually making those modules do the things).
+Text Notes 6150 2050 0    50   ~ 0
+The first thing to explain is the fundamental process by which a 'stored program computer' - ie a computer
+Text Notes 6150 2150 0    50   ~ 0
+that stores the program it is to execute within its own memory - takes that stored program data and
+Text Notes 6150 2250 0    50   ~ 0
+turns it into actual things to do. This is known (as anyone who did computer science GCSE
+Text Notes 6150 2350 0    50   ~ 0
+should know) as the 'fetch-decode-execute' cycle. It's known as that because computer scientists and
+Text Notes 6150 2450 0    50   ~ 0
+computer engineers aren't very imaginative and it literally consists of the computer 'fetching' an instruction,
+Text Notes 6150 2550 0    50   ~ 0
+at a location specified by the 'program counter' (a literal counter that counts through the instructions
+Text Notes 6150 2650 0    50   ~ 0
+in the program, occasionally skipping some or going back to an earlier one if we tell it to), 'decoding' it
+Text Notes 6150 2750 0    50   ~ 0
+(transforming it from an 8-bit binary 'word' into a set of control signals to send to all the other modules to make
+Text Notes 6150 3600 0    50   ~ 0
+storage space and time.
+Text Notes 6150 3000 0    50   ~ 0
+The modules the instructions can make use of are all displayed in the boxes to the left. The main ones 
+Text Notes 6150 3100 0    50   ~ 0
+of note are the RAM / variable storage, which are both used for storing data (variables) produced by the 
+Text Notes 6150 3200 0    50   ~ 0
+program, the 'registers' which are another form of extremely quick access storage which only store 
+Text Notes 6150 3300 0    50   ~ 0
+a single byte of data (8-bits, up to the value 255) and are manipulated by almost every instruction, the 'adder' 
+Text Notes 6150 3400 0    50   ~ 0
+which adds the values of the two registers and the comparison unit, which can compare the size of the 
+Text Notes 6150 3500 0    50   ~ 0
+numbers stored in the registers. Between these modules, the only limits to what this computer can do are 
+Text Notes 6150 4050 0    50   ~ 0
+through them at the end if we have time.
+Text Notes 6150 3750 0    50   ~ 0
+When I was designing the CPU I had the following basic instructions in mind, to guide the control signals I 
+Text Notes 6150 3850 0    50   ~ 0
+made available and to ensure that the end result would actually be able to do some interesting stuff. 
+Text Notes 6150 3950 0    50   ~ 0
+Try and think about how each one would be implemented while we go through the modules - I'll go 
+Text Notes 6150 4200 0    50   ~ 0
+NOP - No operation, ie do nothing
+Text Notes 6150 4300 0    50   ~ 0
+HLT - Halt (stop) the CPU at the end of program execution
+Text Notes 6150 4400 0    50   ~ 0
+ADR - Add the A and B registers
+Text Notes 6150 4500 0    50   ~ 0
+MVA - Put the argument to the instruction into the A register
+Text Notes 6150 4600 0    50   ~ 0
+MVB - Put the argument to the instruction into the B register
+Text Notes 6150 4700 0    50   ~ 0
+RSA - Store the contents of the A register in RAM at the address given by the instruction's argument
+Text Notes 6150 4800 0    50   ~ 0
+RSB - Store the contents of the B register in RAM at the address given by the instruction's argument
+Text Notes 6150 4900 0    50   ~ 0
+RLA - Load the contents of the A register from RAM at the address given by the instruction's argument
+Text Notes 6150 5000 0    50   ~ 0
+RLB - Load the contents of the B register from RAM at the address given by the instruction's argument
+Text Notes 6150 5100 0    50   ~ 0
+STR - Store the contents of the A register in variable storage at the address given by the contents of the B register
+Text Notes 6150 5200 0    50   ~ 0
+LDR - Load the contents of the A register from variable storage at the address given by the contents of the B register
+Text Notes 6150 5300 0    50   ~ 0
+B - Unconditionally jump to the intruction at the address given by the instructions argument
+Text Notes 6150 5400 0    50   ~ 0
+BEQ - Jump to the intruction at the address given by the instructions argument if A = B
+Text Notes 6150 5500 0    50   ~ 0
+BLT - Jump to the intruction at the address given by the instructions argument if A < B
+Text Notes 6150 5600 0    50   ~ 0
+BGT - Jump to the intruction at the address given by the instructions argument if A > B
+Text Notes 6150 5750 0    50   ~ 0
+Note that instructions are stored in the form
+Text Notes 6150 5850 0    50   ~ 0
+XXXX YYYY
+Text Notes 6150 5950 0    50   ~ 0
+where XXXX is the 'operand' - ie the 4-bits associated which each of the above commands and
+Text Notes 6150 6050 0    50   ~ 0
+YYYY is the argument to the command, if applicable.
+Wire Notes Line
+	6100 850  6100 6100
+Wire Notes Line
+	6100 6100 10850 6100
+Wire Notes Line
+	10850 6100 10850 850 
+Wire Notes Line
+	10850 850  6100 850 
 $EndSCHEMATC
